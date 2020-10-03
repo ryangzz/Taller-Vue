@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Mundo</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" name="msg" id="msg" v-model="mensajes.mensaje">&nbsp;&nbsp;{{mensajes.mensaje}}
+        <br><input type="text" v-model="mensajes.mensaje2">&nbsp;&nbsp;{{mensajes.mensaje2}}
+        <br><br><button @click="limpiarMsg">Limpiar</button>
+        <hr>
+        <button @click="addFruta">+ Fruta</button>
+        <button @click="delFruta">- Fruta</button>
+        <input type="text" v-model="fruta">
+        <input type="number" v-model="precio">
+        <ul v-for="fruta of frutas">
+            <li>{{fruta.nombre}}-{{fruta.precio}}&nbsp;Cantidad:<input type="number" :value="fruta.cantidad"></li>
+        </ul>
+        <span>Total:</span><strong>&nbsp;{{total}}</strong>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>
