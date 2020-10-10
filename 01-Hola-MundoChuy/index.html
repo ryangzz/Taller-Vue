@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primer Aplicacion en Vue</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="texto">{{texto}}<br>
+        <button @click="limpiarTexto">Limpiar</button>
+        <hr>
+        <input type="text" v-model="fruta">
+        <input type="number" v-model="precio">
+        <input type="number" v-model="cantidad">
+        <button @click="addFruta">Agregar Fruta</button><br><br>
+        <div>TOTAL DE FRUTAS: <span><strong>{{totalFurtas.total}}</strong></span></div>
+        <div>TOTAL DE PRECIOS: <span><strong>{{totalFurtas.totalPrecio}}</strong></span></div>
+        <ul v-for="fruta of frutas">
+            <li>{{fruta.fruta}} - Precio:{{fruta.precio}} - Cantidad: <input type="number" v-model="fruta.cantidad"></li>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>
