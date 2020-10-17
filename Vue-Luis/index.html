@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>Vue Iniciando</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="texto">{{texto}}
+        <hr>
+        <span v-if="estatus">Activo</span>
+        <span v-else="estatus">Inactivo</span>
+        <input type="checkbox" v-model="estatus">
+        <hr>
+        <input type="radio" id="uno" value="1" v-model="picked">
+        <label for="uno">Activo</label>
+        <br>
+        <input type="radio" id="Dos" value="2" v-model="picked">
+        <label for="Dos">Inactivo</label>
+        <br>
+        <input type="radio" id="tres" value="3" v-model="picked">
+        <label for="tres">Supendido</label>
+        <br>
+        <input type="number" v-model="picked">
+        <span v-if="picked==1">Luis</span>
+        <span v-else-if="picked==2">Emmanuel</span>
+        <span v-else=>Lince</span>
+        <hr>
+        <h1 class="text-center">{{tienda.titulo}}</h1>
+        <div class="container">
+            <label>Formulario</label><br>
+            <input type="text" placeholder="Nombre" v-model="tienda.fruta.nombre">
+            <input type="number" placeholder="Cantidad" v-model="tienda.fruta.cantidad">
+            <input type="number" placeholder="Precio" v-model="tienda.fruta.precio">
+            <button class="btn btn-primary" @click="agregarFruta">Agregar</button><br><br>
+            <input type="text" v-model="frutaBuscar">
+            <button class="btn btn-success" @click="delFrutaChida(frutaBuscar)">Eliminar</button><br><br>
+
+            <div>
+                Cantidad Total de Frutas:&nbsp;{{totalFrutas}}<br> Total de Precios:&nbsp;{{totalPrecioFrutas}}
+            </div><br><br>
+            <ul v-for="(fruta, index) of tienda.frutas" :key="index">
+                <li>
+                    {{fruta.nombre}} --> Cantidad:
+                    <input type="number" v-model="fruta.cantidad"> Precio:
+                    <input type="number" v-model="fruta.precio">
+                    <button @click="delFruta(index)" class="btn btn-danger">Eliminar</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
