@@ -39,11 +39,11 @@ const app = new Vue({
             this.tienda.frutas.splice(index, 1);
         },
         delFrutaChida(elemBuscar) {
-            let eleDel = this.tienda.frutas.filter(fruta => fruta.nombre.toUpperCase() != elemBuscar.toUpperCase());
-            if (eleDel.length == 0) {
+            let fruta = this.tienda.frutas.findIndex(e => e.nombre == elemBuscar);
+            if (fruta < 0) {
                 console.log("Esta fruta no la tenemos");
             } else {
-                this.tienda.frutas = eleDel;
+                this.tienda.frutas.splice(fruta, 1);
             }
             this.frutaBuscar = '';
         }
